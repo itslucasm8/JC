@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function RessourceCard({ ressource }) {
   const { slug, titre, type, categorie, tags = [], description } = ressource;
-  const buttonLabel = type === 'Vid\u00e9o' ? 'Regarder' : 'Lire';
+  const buttonLabel = type === 'Vidéo' ? 'Regarder' : 'Lire';
 
   return (
     <div className="border p-4 rounded shadow flex flex-col h-full">

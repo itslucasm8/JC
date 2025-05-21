@@ -1,51 +1,11 @@
 import { useState } from 'react';
 import RessourceCard from '../components/RessourceCard';
+import { ressources as allRessources } from '../data/ressources';
 
 function Ressources() {
   const [filters, setFilters] = useState({ type: '', categorie: '' });
 
-  const ressources = [
-    {
-      slug: 'cv-australien',
-      titre: 'Comment faire un CV australien',
-      type: 'Article',
-      categorie: 'CV',
-      tags: ['CV'],
-      description: 'Les étapes essentielles pour créer un CV adapté au marché australien.',
-    },
-    {
-      slug: 'modele-cv',
-      titre: 'Modèle de CV à télécharger',
-      type: 'Article',
-      categorie: 'CV',
-      tags: ['Modèle'],
-      description: 'Un exemple gratuit pour démarrer rapidement.',
-    },
-    {
-      slug: 'vie-en-australie',
-      titre: 'Vie en Australie : conseils pratiques',
-      type: 'Article',
-      categorie: 'Vie en Australie',
-      tags: ['Astuces'],
-      description: 'Petits trucs pour s\'adapter facilement une fois sur place.',
-    },
-    {
-      slug: 'video-entretien',
-      titre: 'Préparer son entretien en anglais',
-      type: 'Vidéo',
-      categorie: 'Entretien',
-      tags: ['Vidéo'],
-      description: 'Regardez comment répondre aux questions fréquentes.',
-    },
-    {
-      slug: 'trouver-job',
-      titre: 'Trouver un job rapidement',
-      type: 'Vidéo',
-      categorie: 'Vie en Australie',
-      tags: ['Conseils'],
-      description: 'Nos conseils en vidéo pour décrocher vos premiers jobs.',
-    },
-  ];
+  const ressources = allRessources;
 
   function updateField(field, value) {
     setFilters({ ...filters, [field]: value });
