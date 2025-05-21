@@ -12,7 +12,7 @@ function Profile() {
   const [notifications, setNotifications] = useState(true);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 animate-fade">
       <h1 className="text-2xl font-semibold">Mon compte</h1>
 
       <section className="bg-white p-4 rounded shadow space-y-4">

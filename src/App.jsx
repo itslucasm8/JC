@@ -7,6 +7,7 @@ import Ressources from './pages/Ressources';
 import RessourceDetail from './pages/RessourceDetail';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
+import NotFound from './pages/NotFound';
 import { useAuth } from './context/AuthContext';
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
                 <Route path="ressources" element={<Ressources />} />
                 <Route path="ressources/:slug" element={<RessourceDetail />} />
                 <Route path="mon-compte" element={<Profile />} />
+                <Route path="404" element={<NotFound />} />
+                <Route path="*" element={<Navigate to="/404" replace />} />
               </Routes>
             </Layout>
           ) : (

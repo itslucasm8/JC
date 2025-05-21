@@ -18,7 +18,7 @@ function Ressources() {
   );
 
   return (
-    <div>
+    <div className="animate-fade">
       <h1 className="text-2xl mb-4">Ressources</h1>
 
       <div className="flex flex-wrap gap-2 mb-4">
