@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import JobCard from '../components/JobCard';
 import FilterPanel from '../components/FilterPanel';
+import { jobs as allJobs } from '../data/jobs';
 
 function Jobs() {
   const [filters, setFilters] = useState({
@@ -10,49 +11,7 @@ function Jobs() {
     date: 'recent',
   });
 
-  // Dummy job list
-  const jobs = [
-    {
-      id: 1,
-      titre: 'Ouvrier agricole',
-      ville: 'Cairns',
-      etat: 'QLD',
-      type: 'Ferme',
-      logement: true,
-      datePublication: '2025-05-20',
-      icon: '🚜',
-    },
-    {
-      id: 2,
-      titre: 'Serveur(se) en café',
-      ville: 'Sydney',
-      etat: 'NSW',
-      type: 'Restauration',
-      logement: false,
-      datePublication: '2025-05-18',
-      icon: '☕',
-    },
-    {
-      id: 3,
-      titre: 'Manutentionnaire',
-      ville: 'Melbourne',
-      etat: 'VIC',
-      type: 'Logistique',
-      logement: false,
-      datePublication: '2025-05-22',
-      icon: '📦',
-    },
-    {
-      id: 4,
-      titre: 'Récolte de fruits',
-      ville: 'Bundaberg',
-      etat: 'QLD',
-      type: 'Ferme',
-      logement: true,
-      datePublication: '2025-05-16',
-      icon: '🍓',
-    },
-  ];
+  const jobs = allJobs;
 
   const filteredJobs = jobs
     .filter(
@@ -68,7 +27,7 @@ function Jobs() {
     );
 
   return (
-    <div>
+    <div className="animate-fade">
       <h1 className="text-2xl mb-4">Offres d'emploi</h1>
       <div className="md:flex">
         <FilterPanel filters={filters} onChange={setFilters} />

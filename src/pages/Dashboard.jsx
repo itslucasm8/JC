@@ -1,10 +1,16 @@
 import { useAuth } from '../context/AuthContext';
 import JobCard from '../components/JobCard';
 import ArticleCard from '../components/ArticleCard';
+import { useJobs } from '../context/JobsContext';
+import { jobs as allJobs } from '../data/jobs';
 
 function Dashboard() {
   const { user } = useAuth();
   const prenom = user ? user.email.split('@')[0] : 'ami';
+  const { saved, applied } = useJobs();
+
+  const savedJobs = allJobs.filter((j) => saved.includes(j.id));
+  const appliedJobs = allJobs.filter((j) => applied.includes(j.id));
 
   const alertes = [
     {
@@ -27,20 +33,8 @@ function Dashboard() {
     },
   ];
 
-  const savedJobs = [
-    {
-      id: 3,
-      titre: 'Caissier(e) supermarché',
-      ville: 'Sydney',
-      etat: 'NSW',
-      type: 'Vente',
-      logement: false,
-      icon: '🛒',
-    },
-  ];
-
   const stats = {
-    candidatures: 4,
+    candidatures: appliedJobs.length,
     jobsVus: 15,
     sauvegardes: savedJobs.length,
   };
@@ -51,7 +45,7 @@ function Dashboard() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 animate-fade">
       <h1 className="text-2xl font-semibold">
         Bienvenue, {prenom} <span role="img" aria-label="salut">👋</span>
       </h1>
@@ -72,6 +66,19 @@ function Dashboard() {
         ) : (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {savedJobs.map((job) => (
+              <JobCard key={job.id} job={job} />
+            ))}
+          </div>
+        )}
+      </section>
+
+      <section>
+        <h2 className="text-xl font-bold mb-2">📥 Candidatures envoyées</h2>
+        {appliedJobs.length === 0 ? (
+          <p>Aucune candidature pour l'instant.</p>
+        ) : (
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {appliedJobs.map((job) => (
               <JobCard key={job.id} job={job} />
             ))}
           </div>

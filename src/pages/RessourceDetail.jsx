@@ -20,7 +20,7 @@ function RessourceDetail() {
     .slice(0, 3);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-fade">
       <Link to="/ressources" className="text-blue-600">← Retour aux ressources</Link>
       <h1 className="text-2xl font-bold">{ressource.titre}</h1>
       <div className="text-sm text-gray-600 flex flex-wrap gap-2">

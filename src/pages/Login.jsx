@@ -12,7 +12,7 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center animate-fade">
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow w-80">
         <h1 className="text-xl mb-4 text-center">Connexion</h1>
         <div className="mb-2">
