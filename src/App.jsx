@@ -16,27 +16,20 @@ function App() {
   return (
     <Routes>
       <Route path="/connexion" element={<Login />} />
-      <Route
-        path="/*"
-        element={
-          user ? (
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="jobs" element={<Jobs />} />
-                <Route path="jobs/:id" element={<JobDetail />} />
-                <Route path="ressources" element={<Ressources />} />
-                <Route path="ressources/:slug" element={<RessourceDetail />} />
-                <Route path="mon-compte" element={<Profile />} />
-                <Route path="404" element={<NotFound />} />
-                <Route path="*" element={<Navigate to="/404" replace />} />
-              </Routes>
-            </Layout>
-          ) : (
-            <Navigate to="/connexion" />
-          )
-        }
-      />
+      {user ? (
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="jobs" element={<Jobs />} />
+          <Route path="jobs/:id" element={<JobDetail />} />
+          <Route path="ressources" element={<Ressources />} />
+          <Route path="ressources/:slug" element={<RessourceDetail />} />
+          <Route path="mon-compte" element={<Profile />} />
+          <Route path="404" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
+        </Route>
+      ) : (
+        <Route path="/*" element={<Navigate to="/connexion" />} />
+      )}
     </Routes>
   );
 }
