@@ -50,8 +50,8 @@ function Dashboard() {
         Bienvenue, {prenom} <span role="img" aria-label="salut">👋</span>
       </h1>
 
-      <section>
-        <h2 className="text-xl font-bold mb-2">✅ Alertes d'emploi</h2>
+      <section className="bg-white rounded-lg shadow p-6 space-y-4">
+        <h2 className="text-xl font-bold">✅ Alertes d'emploi</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {alertes.map((job) => (
             <JobCard key={job.id} job={job} />
@@ -59,8 +59,8 @@ function Dashboard() {
         </div>
       </section>
 
-      <section>
-        <h2 className="text-xl font-bold mb-2">⭐ Mes offres sauvegardées</h2>
+      <section className="bg-white rounded-lg shadow p-6 space-y-4">
+        <h2 className="text-xl font-bold">⭐ Mes offres sauvegardées</h2>
         {savedJobs.length === 0 ? (
           <p>Aucune offre sauvegardée.</p>
         ) : (
@@ -72,8 +72,8 @@ function Dashboard() {
         )}
       </section>
 
-      <section>
-        <h2 className="text-xl font-bold mb-2">📥 Candidatures envoyées</h2>
+      <section className="bg-white rounded-lg shadow p-6 space-y-4">
+        <h2 className="text-xl font-bold">📥 Candidatures envoyées</h2>
         {appliedJobs.length === 0 ? (
           <p>Aucune candidature pour l'instant.</p>
         ) : (
@@ -85,26 +85,26 @@ function Dashboard() {
         )}
       </section>
 
-      <section>
-        <h2 className="text-xl font-bold mb-2">📈 Statistiques</h2>
+      <section className="bg-white rounded-lg shadow p-6 space-y-4">
+        <h2 className="text-xl font-bold">📈 Statistiques</h2>
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="bg-white rounded shadow p-4 text-center">
+          <div className="text-center">
             <p className="text-3xl font-bold">{stats.candidatures}</p>
             <p className="text-sm">candidatures envoyées</p>
           </div>
-          <div className="bg-white rounded shadow p-4 text-center">
+          <div className="text-center">
             <p className="text-3xl font-bold">{stats.jobsVus}</p>
             <p className="text-sm">jobs consultés</p>
           </div>
-          <div className="bg-white rounded shadow p-4 text-center">
+          <div className="text-center">
             <p className="text-3xl font-bold">{stats.sauvegardes}</p>
             <p className="text-sm">offres sauvegardées</p>
           </div>
         </div>
       </section>
 
-      <section>
-        <h2 className="text-xl font-bold mb-2">🎥 Ressources suggérées</h2>
+      <section className="bg-white rounded-lg shadow p-6 space-y-4">
+        <h2 className="text-xl font-bold">🎥 Ressources suggérées</h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {ressources.map((r) => (
             <ArticleCard key={r.slug} article={r} />
